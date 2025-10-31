@@ -1,0 +1,17 @@
+@import './DataPages.css';
+
+.medications-page {
+  min-height: 100vh;
+  background: var(--background-light);
+}
+
+.medications-list {
+  overflow-y: auto;
+  height: calc(100vh - 64px - 180px);
+}
+
+.med-dosage {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+  font-weight: 500;
+}

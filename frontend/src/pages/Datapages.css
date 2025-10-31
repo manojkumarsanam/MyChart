@@ -1,0 +1,325 @@
+/* Shared styles for Messages, Appointments, Medications, Visits, TestResults, Billing pages */
+
+.data-page {
+  min-height: 100vh;
+  background: var(--background-light);
+}
+
+/* Report/Action Buttons */
+.report-btn,
+.refill-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--primary-blue);
+  color: white;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.report-btn:hover,
+.refill-btn:hover {
+  background: var(--primary-blue-dark);
+  transform: translateY(-1px);
+}
+
+.report-btn svg,
+.refill-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Stats Cards */
+.meds-stats,
+.billing-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--background-white);
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  background: var(--background-light);
+  border-radius: 8px;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-gray);
+  font-weight: 600;
+}
+
+/* List Items */
+.medication-item,
+.visit-item,
+.test-item,
+.bill-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--background-white);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.medication-item:hover,
+.visit-item:hover,
+.test-item:hover,
+.bill-item:hover {
+  border-color: var(--primary-blue);
+  box-shadow: var(--shadow-sm);
+}
+
+.medication-item.active,
+.visit-item.active,
+.test-item.active,
+.bill-item.active {
+  border-color: var(--primary-blue);
+  background: #e3f2fd;
+}
+
+/* Icons */
+.med-icon,
+.visit-icon,
+.test-icon,
+.bill-icon {
+  width: 40px;
+  height: 40px;
+  background: #e3f2fd;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.med-icon svg,
+.visit-icon svg,
+.test-icon svg,
+.bill-icon svg {
+  width: 20px;
+  height: 20px;
+  color: var(--primary-blue);
+}
+
+.med-icon.inactive,
+.visit-icon.past {
+  background: #f3f4f6;
+}
+
+.med-icon.inactive svg,
+.visit-icon.past svg {
+  color: var(--text-gray);
+}
+
+/* Info sections */
+.med-info,
+.visit-info,
+.test-info,
+.bill-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.med-info h4,
+.visit-info h4,
+.test-info h4,
+.bill-info h4 {
+  font-size: 0.938rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.med-info p,
+.visit-info p,
+.test-info p,
+.bill-info p {
+  font-size: 0.813rem;
+  color: var(--text-gray);
+  margin-bottom: 4px;
+}
+
+.refills,
+.completed {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+}
+
+.completed {
+  color: var(--text-gray);
+}
+
+/* Details Pages */
+.medication-details,
+.visit-details,
+.test-details,
+.bill-details {
+  padding: 32px;
+  max-width: 900px;
+}
+
+.med-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.instructions-box,
+.alert-box {
+  padding: 20px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+[data-theme="dark"] .instructions-box,
+[data-theme="dark"] .alert-box {
+  background: rgba(30, 136, 229, 0.1);
+  border-color: rgba(30, 136, 229, 0.3);
+}
+
+.instructions-box h4,
+.alert-box h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.instructions-box h4 svg,
+.alert-box h4 svg {
+  width: 20px;
+  height: 20px;
+  color: var(--primary-blue);
+}
+
+.instructions-box p,
+.alert-box p {
+  font-size: 0.875rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.action-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.action-btn.secondary {
+  background: var(--background-light);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+}
+
+.action-btn.secondary:hover {
+  background: var(--background-white);
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+}
+
+.action-btn.danger {
+  background: #fee2e2;
+  color: var(--error-red);
+  border: 1px solid transparent;
+}
+
+.action-btn.danger:hover {
+  background: var(--error-red);
+  color: white;
+}
+
+.action-btn.primary {
+  background: var(--primary-blue);
+  color: white;
+}
+
+.action-btn.primary:hover {
+  background: var(--primary-blue-dark);
+}
+
+/* Sections */
+.meds-section,
+.visits-section,
+.tests-section,
+.bills-section {
+  padding: 20px;
+}
+
+.meds-section h3,
+.visits-section h3,
+.tests-section h3,
+.bills-section h3 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-gray);
+  margin-bottom: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .medication-details,
+  .visit-details,
+  .test-details,
+  .bill-details {
+    padding: 20px;
+  }
+
+  .med-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
