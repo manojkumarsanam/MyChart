@@ -1,0 +1,486 @@
+/* Theme Variables */
+:root {
+  --header-bg: #1e88e5;
+  --header-hover: rgba(255, 255, 255, 0.15);
+  --header-active: rgba(255, 255, 255, 0.2);
+  --text-primary: #ffffff;
+  --dropdown-bg: #c8ddf5;
+  --dropdown-text: #333333;
+  --dropdown-hover: rgba(0, 0, 0, 0.05);
+  --logout-bg: #e8f0f9;
+  --logout-text: #333333;
+  --body-bg-light: #f5f5f5;
+  --body-bg-dark: #0f0f1e;
+}
+
+[data-theme="dark"] {
+  --header-bg: #1a1a2e;
+  --header-hover: rgba(255, 255, 255, 0.1);
+  --header-active: rgba(255, 255, 255, 0.15);
+  --text-primary: #ffffff;
+  --dropdown-bg: #2d2d44;
+  --dropdown-text: #ffffff;
+  --dropdown-hover: rgba(255, 255, 255, 0.1);
+  --logout-bg: #3d3d5c;
+  --logout-text: #ffffff;
+}
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--body-bg-light);
+  transition: background-color 0.3s ease;
+}
+
+[data-theme="dark"] body {
+  background-color: var(--body-bg-dark);
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: var(--header-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 64px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Logo Styles */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+
+.logo:hover {
+  opacity: 0.95;
+}
+
+.logo-icon-wrapper {
+  width: 38px;
+  height: 38px;
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo-icon-wrapper svg {
+  width: 22px;
+  height: 22px;
+  color: #1e88e5;
+  stroke-width: 2.5;
+}
+
+.logo-text {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+
+/* Navigation Styles */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+  margin: 0 32px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+  height: 44px;
+}
+
+.nav-item:hover {
+  background-color: var(--header-hover);
+  transform: translateY(-1px);
+}
+
+.nav-item:active {
+  transform: translateY(0);
+}
+
+.nav-item.active {
+  background-color: var(--header-active);
+}
+
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--text-primary);
+  border-radius: 3px 3px 0 0;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.nav-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+}
+
+.nav-label {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* User Menu Styles */
+.user-menu {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.user-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 44px;
+}
+
+.user-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+
+.user-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+}
+
+.user-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2;
+}
+
+.dropdown-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-arrow svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.5;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  background-color: var(--dropdown-bg);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  min-width: 280px;
+  overflow: hidden;
+  animation: dropdownFadeIn 0.2s ease;
+  z-index: 1001;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dropdown Header */
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.dropdown-user-icon {
+  width: 56px;
+  height: 56px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dropdown-user-icon svg {
+  width: 28px;
+  height: 28px;
+  color: #333;
+}
+
+.dropdown-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dropdown-user-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dropdown-text);
+  line-height: 1.2;
+}
+
+.dropdown-user-id {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.2;
+}
+
+[data-theme="dark"] .dropdown-user-id {
+  color: #aaa;
+}
+
+/* Dropdown Items */
+.dropdown-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 8px 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  color: var(--dropdown-text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+}
+
+.dropdown-item:hover {
+  background-color: var(--dropdown-hover);
+}
+
+.dropdown-item-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dropdown-item-icon svg {
+  width: 20px;
+  height: 20px;
+  color: var(--dropdown-text);
+}
+
+.dropdown-item-text {
+  flex: 1;
+}
+
+/* Logout Button */
+.dropdown-item.logout {
+  color: var(--error-red);
+  font-weight: 600;
+}
+
+.dropdown-item.logout .dropdown-item-icon svg {
+  color: var(--error-red);
+}
+
+.dropdown-item.logout:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .nav {
+    gap: 2px;
+    margin: 0 20px;
+  }
+
+  .nav-item {
+    padding: 8px 14px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header-container {
+    padding: 0 24px;
+  }
+
+  .nav {
+    gap: 2px;
+    margin: 0 16px;
+  }
+
+  .nav-item {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .nav-icon {
+    font-size: 18px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0 16px;
+  }
+
+  .nav {
+    margin: 0 12px;
+    gap: 4px;
+  }
+
+  .nav-label {
+    display: none;
+  }
+
+  .nav-item {
+    padding: 10px;
+    width: 44px;
+    justify-content: center;
+  }
+
+  .logo-text {
+    font-size: 24px;
+  }
+
+  .dropdown-menu {
+    min-width: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0 12px;
+  }
+
+  .logo-icon {
+    font-size: 28px;
+  }
+
+  .logo-text {
+    font-size: 22px;
+  }
+
+  .nav {
+    gap: 2px;
+    margin: 0 8px;
+  }
+
+  .nav-icon {
+    font-size: 20px;
+  }
+
+  .nav-item {
+    padding: 8px;
+    width: 40px;
+  }
+
+  .user-button {
+    padding: 8px 12px;
+  }
+
+  .dropdown-menu {
+    min-width: 240px;
+    right: -12px;
+  }
+}
